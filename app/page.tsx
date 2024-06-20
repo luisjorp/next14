@@ -3,12 +3,13 @@ import styles from '@/app/ui/home.module.css';
 import { lusitana } from '@/app/ui/fonts';
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Page() {
   return (
     <main className="flex min-h-screen flex-col p-6">
       <div className="flex h-20 shrink-0 items-end rounded-lg bg-blue-500 p-4 md:h-52">
-        {/* <AcmeLogo /> */}
+        <AcmeLogo />
         <div className={styles.shape}></div>
       </div>
       <div className="mt-4 flex grow flex-col gap-4 md:flex-row">
@@ -32,6 +33,27 @@ export default function Page() {
         </div>
         <div className="flex items-center justify-center p-6 md:w-3/5 md:px-28 md:py-12">
           {/* Add Hero Images Here */}
+          <Image
+            src="/hero-desktop.png"
+            width={1000}
+            height={760}
+            className="hidden md:block"
+            alt="Screenshots of the dashboard project showing desktop version"
+          />
+
+          {/*Images not converting to webp
+          on next 15 and react 19 so make these changes on package.json
+          "next": "^14.2.3",
+          "react": "18.2.0",
+          "react-dom": "^18"*/}
+          <Image
+            src="/hero-mobile.png"
+            width={560}
+            height={620}
+            priority={true}
+            className="block md:hidden"
+            alt="Screenshots of the dashboard project showing mobile version"
+          />
         </div>
       </div>
     </main>
